@@ -26,9 +26,5 @@ snapshot of llama.cpp's *internal* example API (`common_sampler`,
 changed since. To become current again the code needs porting to the present
 KV-cache/sampler API; the beam-search technique itself remains valid.
 
-**License note:** No LICENSE file is present and no upstream project is cited,
-so this is the owner's own code and the owner may license it as they choose.
-However the surrounding scaffolding is llama.cpp's example framework
-(MIT-licensed) — publishing this as part of or alongside llama.cpp is the
-natural and license-compatible route; a standalone repo would need to state its
-dependence on llama.cpp's MIT license.
+**License note:** See [`LICENSE`](LICENSE) (AGPL-3.0-only). The code depends on
+llama.cpp's example framework (MIT-licensed), which is not included here.

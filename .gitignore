@@ -3,3 +3,9 @@ __pycache__/
 .venv/
 node_modules/
 .ipynb_checkpoints/
+.pi/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.o
