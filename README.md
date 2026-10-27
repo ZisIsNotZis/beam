@@ -76,9 +76,8 @@ rather than instructions.
 | [`beam7.cpp`](beam7.cpp) | Compile-time switch for sampler cloning, cleaner branch remapping, KV and timing instrumentation. | One implementation can compare both sampler strategies without forking the search code. |
 | [`beam8.cpp`](beam8.cpp) | Allocate a fresh sequence id for each fork instead of reusing the donor slot. | The simplest branching logic, at the cost of more KV copying. |
 
-`beam.cpp` is iteration 1; there is no `beam1.cpp`. `beamUnknown.cpp` was a
-CRLF copy of `beam8.cpp` and has been removed. The numbered files stay
-untouched as history.
+`beam.cpp` is iteration 1; there is no `beam1.cpp`. The numbering is the order
+the ideas were tried, and the files stay untouched as history.
 
 ## How it works
 
@@ -114,7 +113,7 @@ helpers. The intended development loop is:
 
 1. Pick a llama.cpp revision whose internal example API matches the file.
 2. Add the file as an `examples/` target in that tree.
-3. Keep a new idea in a new numbered file; leave the old snapshots alone.
+3. Iterate in a scratch copy; the numbered snapshots stay as they are.
 4. If porting to today's API, change the KV and sampler calls, not the search
    shape — the sequence-ownership model is the part worth preserving.
 
@@ -123,11 +122,11 @@ deliberate boundary of the archive, not a missing release artifact.
 
 ## How to contribute
 
-This is an archive, not a maintained project. Ports and corrections are
-welcome if they name the llama.cpp commit they target and include a command
-that reproduces one generation. Add a new file for a new design; do not
-reformat or rewrite the historical snapshots. For anything larger, open an
-issue on [GitHub](https://github.com/ZisIsNotZis/beam) first.
+This is an archive, not a maintained project: a new design goes in a new
+numbered file, and the historical snapshots stay as they are. The rules for
+ports, corrections and review are in [CONTRIBUTING.md](CONTRIBUTING.md);
+anything larger starts as an issue on
+[GitHub](https://github.com/ZisIsNotZis/beam/issues).
 
 ## Roadmap
 

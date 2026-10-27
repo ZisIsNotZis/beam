@@ -65,8 +65,8 @@ llama.cpp 和 BLAS 目录，应当当作来源记录，而不是操作步骤。
 | [`beam7.cpp`](beam7.cpp) | 用编译期开关选择是否克隆 sampler，整理分支重映射，加入 KV 和耗时统计。 | 同一套搜索代码就能比较两种采样器策略。 |
 | [`beam8.cpp`](beam8.cpp) | 每次分叉都分配新的序列 id，不再复用供体槽位。 | 分支逻辑最简单，代价是更多 KV 复制。 |
 
-`beam.cpp` 就是第 1 版，没有 `beam1.cpp`。`beamUnknown.cpp` 是
-`beam8.cpp` 的 CRLF 副本，已经删除。编号文件保持原样，作为历史保留。
+`beam.cpp` 就是第 1 版，没有 `beam1.cpp`。编号就是想法被尝试的顺序，这些文件
+保持原样，作为历史保留。
 
 ## 实现方式
 
@@ -97,7 +97,7 @@ prompt ── seq 0
 
 1. 选一个内部示例 API 与文件匹配的 llama.cpp 版本。
 2. 把这个文件作为 `examples/` 目标加进那棵树。
-3. 新想法写进新的编号文件；旧快照不要动。
+3. 在临时副本里改；编号快照保持原样。
 4. 如果要移植到今天的 API，改 KV 和采样器调用，不要改搜索结构——序列归属
    模型才是值得保留的部分。
 
@@ -106,10 +106,9 @@ prompt ── seq 0
 
 ## 如何参与
 
-这是一个归档，不是维护中的项目。欢迎移植和修正，但请注明针对的 llama.cpp
-commit，并附上一条能复现单次生成的命令。新设计请新增文件；不要重排或改写历史
-快照。更大的改动请先在 [GitHub](https://github.com/ZisIsNotZis/beam) 开 issue
-讨论。
+这是一个归档，不是维护中的项目：新的设计写进新的编号文件，历史快照保持原样。
+移植和修正的规则、评审要求见 [CONTRIBUTING.md](CONTRIBUTING.md)；更大的改动请先在
+[GitHub](https://github.com/ZisIsNotZis/beam/issues) 开 issue 讨论。
 
 ## 路线
 
