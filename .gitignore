@@ -1,11 +1,29 @@
+# Python
 __pycache__/
 *.pyc
 .venv/
-node_modules/
 .ipynb_checkpoints/
+
+# Node
+node_modules/
+
+# Local tool state and secrets
 .pi/
 .env
 .env.*
 !.env.example
-.DS_Store
+
+# Build outputs
 *.o
+*.out
+a.out
+build/
+dist/
+cmake-build-*/
+
+# Editor and OS junk
+.DS_Store
+*.swp
+*.swo
+*~
+*.bak
